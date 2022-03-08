@@ -40,6 +40,20 @@ zero.addEventListener('click', () => {
     result.textContent = total;
 })
 
+//00のボタンを押した時 #zeros
+let zeros = document.getElementById('zeros');
+zeros.addEventListener('click', () => {
+  //console.log(zero.dataset.id);
+  if(state === 'start' || state === 'finish' || state === 'decimal') {
+      return;
+    }
+
+    if(state === 'calculation') {
+      total += zeros.dataset.id;
+    }
+    result.textContent = total;
+})
+
 //.のボタンを押した時 #point
 let point = document.getElementById('point');
 point.addEventListener('click', () => {
@@ -74,6 +88,7 @@ operator.forEach((index) => {
     result.textContent = total;
     state = 'decimal'
     mode = 'integerMode'
+    console.log(state);
   })
 })
 
